@@ -8,24 +8,24 @@
 
 <div class = "login">
 
-    <h1>Login</h1>
-
-    <form method="POST" action="">
+    {% comment %} <h1>Login</h1> {% endcomment %}
+    <p class="sign" align="center">Login</p>
+    <form method="POST" action="" class="form1">
         {% csrf_token %}
         <table>
             <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                {% comment %} <td>Username: </td> {% endcomment %}
+                <td><input type="text" align="center" name="username" placeholder="Username" class="un"></td>
             </tr>
                     
             <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                {% comment %} <td>Password: </td> {% endcomment %}
+                <td><input type="password" align="center" name="password" placeholder="Password" class="pass"></td>
             </tr>
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><input class="btn" align="center" type="submit" value="Login"></td>
             </tr>
         </table>
     </form>

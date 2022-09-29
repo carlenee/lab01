@@ -6,13 +6,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   {% block meta %}
   {% endblock meta %}
+  <style>
+    body {
+      background-color: #F3EBF6;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    .login {
+      background-color: #FFFFFF;
+      width: 400px;
+      height: 400px;
+      margin: 7em auto;
+      border-radius: 1.5em;
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+      text-align:center
+      {% comment %} display:flex
+      align-item:center
+      justify-content:center {% endcomment %}
+    }
+
+    .sign {
+      padding-top: 40px;
+      color: #8C55AA;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: bold;
+      font-size: 23px;
+    }
+
+    .un {
+      width: 76%;
+      color: rgb(38, 50, 56);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      background: rgba(136, 126, 126, 0.04);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      box-sizing: border-box;
+      border: 2px solid rgba(0, 0, 0, 0.02);
+      margin-bottom: 50px;
+      margin-left: 80px;
+      text-align: center;
+      margin-bottom: 27px;
+      font-family: 'Ubuntu', sans-serif;
+      }
+
+      .pass {
+        width: 76%;
+        color: rgb(38, 50, 56);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        background: rgba(136, 126, 126, 0.04);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        box-sizing: border-box;
+        border: 2px solid rgba(0, 0, 0, 0.02);
+        margin-bottom: 50px;
+        margin-left: 80px;
+        text-align: center;
+        margin-bottom: 27px;
+        font-family: 'Ubuntu', sans-serif;
+        }
+
+        .un:focus, .pass:focus {
+          border: 2px solid rgba(0, 0, 0, 0.18) !important;
+     
+        }
+
+        .btn{
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #ec6f66 , #f3a183);
+        }
+
+        .listtable {
+          border-collapse: collapse;
+          margin: 25px 0;
+          font-size: 0.9em;
+          font-family: sans-serif;
+          min-width: 400px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .listtable thead tr {
+          background-color: #8cbcb2;
+          color: #f3a183;
+          text-align: left;
+        }
+
+        .listtable th, td{
+          padding: 12px 15px;
+        }
+
+        .listtable tbody tr {
+          border-bottom: 1px solid #f3a183;
+          }
+      
+          .listtable tbody tr:last-of-type {
+              border-bottom: 2px solid #ec6f66;
+          }
+        
+      {% comment %} .wishlist-container {
+        max-width: 900px;
+        margin: auto;
+        background-color: #fff;
+        -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        text-align: center;
+      } {% endcomment %}
+
+
+     
+
+
+     
+ 
+
+
+
+  </style>
 </head>
 
 <body>
   {% block content %}
   {% endblock content %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 
 </html>
