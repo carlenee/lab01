@@ -1,4 +1,8 @@
+from calendar import day_abbr
+from json import JSONDecodeError
+from sqlite3 import DatabaseError
 from django.shortcuts import render
+from wishlist.forms import WishlistForm
 from wishlist.models import BarangWishlist
 from django.http import HttpResponse
 from django.core import serializers
@@ -9,10 +13,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 data_barang_wishlist = BarangWishlist.objects.all()
+
+newForm = WishlistForm()
 
 
 
@@ -26,6 +33,14 @@ def show_wishlist(request):
     'last_login': request.COOKIES['last_login'],
    }
     return render(request, "wishlist.html", context)
+
+def show_wishlist_ajax(request):
+    context = {
+        'nama': 'Carlene Annabel',
+        'last_login': request.COOKIES['last_login'],
+        'form': newForm
+    }
+    return render(request, 'wishlist_ajax.html', context)
 
 def show_xml(request):
     data = BarangWishlist.objects.all()
@@ -76,3 +91,28 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('wishlist:login'))
     response.delete_cookie('last_login')
     return response
+
+# def create_wishlist(request):
+#     user_name = User.objects.get(username=request.user)    
+#     form = WishlistForm()
+#     new_task = None
+#     if request.method == 'POST':
+#         form = WishlistForm(request.POST)
+#         if form.is_valid():
+#             new_task = form.save(commit=False)
+#             new_task.user = request.user
+#             new_task.save()
+#         return HttpResponseRedirect(reverse("wishlist:show_wishlist"))
+#     context = {'form': form}
+#     return render(request, 'wishlist_form.html', context)
+
+# def create_wishlist(request):
+#     if request.method == 'POST':
+#         nama_barang = request.POST.get('nama_barang')
+#         harga_barang = request.POST.get('harga_barang')
+#         deskripsi = request.POST.get('deskripsi')
+#         BarangWishlist.objects.create()
+#         wishlist = BarangWishlist.objects.create(nama_barang=nama_barang,deskripsi=deskripsi,harga_barang=harga_barang)
+#         response = HttpResponseRedirect(reverse("wishlist:show_wishlist_ajax")) 
+#         return response
+#     return render(request, 'wishlist_ajax.html', wishlist)
